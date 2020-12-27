@@ -13,14 +13,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Video"),
+        title: const Text('Video'),
       ),
       body: Center(
         child: Container(
           child: RaisedButton(
-            child: Text("LOAD VIDEO"),
+            child: const Text('LOAD VIDEO'),
             onPressed: () async {
-              PickedFile file = await imagePicker.getVideo(
+              final file = await imagePicker.getVideo(
                 source: ImageSource.gallery,
               );
               if (file != null) {
