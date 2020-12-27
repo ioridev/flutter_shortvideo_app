@@ -32,6 +32,7 @@ dependencies:
   path: ^1.7.0
   video_trimmer: ^0.3.4
   image_picker: ^0.6.7+14
+  camera: ^0.6.2+1
 
 
 
