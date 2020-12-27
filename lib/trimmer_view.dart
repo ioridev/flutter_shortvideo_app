@@ -4,14 +4,14 @@ import 'package:video_trimmer/video_trimmer.dart';
 
 class TrimmerView extends StatefulWidget {
   final Trimmer _trimmer;
-  TrimmerView(this._trimmer);
+  const TrimmerView(this._trimmer);
   @override
   _TrimmerViewState createState() => _TrimmerViewState();
 }
 
 class _TrimmerViewState extends State<TrimmerView> {
-  double _startValue = 0.0;
-  double _endValue = 0.0;
+  double _startValue = 0;
+  double _endValue = 0;
 
   bool _isPlaying = false;
   bool _progressVisibility = false;
@@ -73,16 +73,16 @@ class _TrimmerViewState extends State<TrimmerView> {
                             );
                           });
                         },
-                  child: Text("SAVE"),
+                  child: const Text('SAVE'),
                 ),
                 Expanded(
                   child: VideoViewer(),
                 ),
                 Center(
                   child: TrimEditor(
-                    viewerHeight: 50.0,
+                    viewerHeight: 50,
                     viewerWidth: MediaQuery.of(context).size.width,
-                    maxVideoLength: Duration(seconds: 10),
+                    maxVideoLength: const Duration(seconds: 10),
                     onChangeStart: (value) {
                       _startValue = value;
                     },
@@ -98,18 +98,18 @@ class _TrimmerViewState extends State<TrimmerView> {
                 ),
                 FlatButton(
                   child: _isPlaying
-                      ? Icon(
+                      ? const Icon(
                           Icons.pause,
-                          size: 80.0,
+                          size: 80,
                           color: Colors.white,
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.play_arrow,
-                          size: 80.0,
+                          size: 80,
                           color: Colors.white,
                         ),
                   onPressed: () async {
-                    bool playbackState =
+                    var playbackState =
                         await widget._trimmer.videPlaybackControl(
                       startValue: _startValue,
                       endValue: _endValue,
